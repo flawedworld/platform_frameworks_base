@@ -14464,6 +14464,13 @@ public final class Settings {
          * @hide
          */
         public static final String SETTINGS_REBOOT_AFTER_TIMEOUT = "settings_reboot_after_timeout";
+
+        /**
+         * User defined max attempts for fingerprint unlocking failures
+         *
+         * @hide
+         */
+        public static final String MAX_FINGERPRINT_ATTEMPTS = "max_fingerprint_attempts";
     }
 
     /**
