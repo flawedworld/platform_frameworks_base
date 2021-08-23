@@ -966,6 +966,7 @@ public class FaceService extends BiometricServiceBase {
                 mCurrentUserLockoutMode = AuthenticationClient.LOCKOUT_NONE;
             } else if (duration == -1 || duration == Long.MAX_VALUE) {
                 mCurrentUserLockoutMode = AuthenticationClient.LOCKOUT_PERMANENT;
+                mCurrentUserLockoutMode = Settings.Global.getInt(getContext().getContentResolver(), Settings.Global.MAX_FACE_ATTEMPTS, AuthenticationClient.LOCKOUT_PERMANENT);
             } else {
                 mCurrentUserLockoutMode = AuthenticationClient.LOCKOUT_TIMED;
             }

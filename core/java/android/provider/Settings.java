@@ -14464,6 +14464,13 @@ public final class Settings {
          * @hide
          */
         public static final String SETTINGS_REBOOT_AFTER_TIMEOUT = "settings_reboot_after_timeout";
+
+        /**
+         * User defined max attempts for face unlocking failures
+         *
+         * @hide
+         */
+        public static final String MAX_FACE_ATTEMPTS = "max_face_attempts";
     }
 
     /**
