@@ -107,7 +107,7 @@ public class AirplaneModeTile extends QSTileImpl<BooleanState> {
         return new BooleanState();
     }
 
-    public void handleClickInner(@Nullable View view) {
+    private void handleClickInner() {
         boolean airplaneModeEnabled = mState.value;
         MetricsLogger.action(mContext, getMetricsCategory(), !airplaneModeEnabled);
         if (!airplaneModeEnabled && TelephonyProperties.in_ecm_mode().orElse(false)) {
@@ -119,7 +119,7 @@ public class AirplaneModeTile extends QSTileImpl<BooleanState> {
     }
 
     @Override
-    public void handleClick() {
+    public void handleClick(@Nullable View view) {
         if (mKeyguard.isMethodSecure() && mKeyguard.isShowing()) {
             mActivityStarter.postQSRunnableDismissingKeyguard(() -> {
                 mHost.openPanels();
