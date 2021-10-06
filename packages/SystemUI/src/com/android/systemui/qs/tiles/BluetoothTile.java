@@ -109,7 +109,7 @@ public class BluetoothTile extends QSTileImpl<BooleanState> {
         return new BooleanState();
     }
 
-    protected void handleClickInner(@Nullable View view) {
+    private void handleClickInner() {
         // Secondary clicks are header clicks, just toggle.
         final boolean isEnabled = mState.value;
         // Immediately enter transient enabling state when turning bluetooth on.
@@ -118,7 +118,7 @@ public class BluetoothTile extends QSTileImpl<BooleanState> {
     }
 
     @Override
-    protected void handleClick() {
+    protected void handleClick(@Nullable View view) {
         if (mKeyguard.isMethodSecure() && mKeyguard.isShowing()) {
             mActivityStarter.postQSRunnableDismissingKeyguard(() -> {
                 mHost.openPanels();
