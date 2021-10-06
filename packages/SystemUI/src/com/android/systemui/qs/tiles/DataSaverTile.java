@@ -91,7 +91,7 @@ public class DataSaverTile extends QSTileImpl<BooleanState> implements
         return new Intent(Settings.ACTION_DATA_SAVER_SETTINGS);
     }
 
-    protected void handleClickInner() {
+    private void handleClickInner() {
         if (mState.value
                 || Prefs.getBoolean(mContext, Prefs.Key.QS_DATA_SAVER_DIALOG_SHOWN, false)) {
             // Do it right away.
