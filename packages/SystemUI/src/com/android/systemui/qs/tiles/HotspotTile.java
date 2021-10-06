@@ -121,7 +121,7 @@ public class HotspotTile extends QSTileImpl<BooleanState> {
         return new BooleanState();
     }
 
-    protected void handleClickInner(@Nullable View view) {
+    private void handleClickInner() {
         final boolean isEnabled = mState.value;
         if (!isEnabled && mDataSaverController.isDataSaverEnabled()) {
             return;
@@ -132,7 +132,7 @@ public class HotspotTile extends QSTileImpl<BooleanState> {
     }
 
     @Override
-    protected void handleClick() {
+    protected void handleClick(@Nullable View view) {
         if (mKeyguard.isMethodSecure() && mKeyguard.isShowing()) {
             mActivityStarter.postQSRunnableDismissingKeyguard(() -> {
                 mHost.openPanels();
