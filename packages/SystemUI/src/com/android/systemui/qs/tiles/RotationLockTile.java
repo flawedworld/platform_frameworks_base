@@ -94,14 +94,14 @@ public class RotationLockTile extends QSTileImpl<BooleanState> {
         return new Intent(Settings.ACTION_AUTO_ROTATE_SETTINGS);
     }
 
-    protected void handleClickInner(@Nullable View view) {
+    private void handleClickInner() {
         final boolean newState = !mState.value;
         mController.setRotationLocked(!newState);
         refreshState(newState);
     }
 
     @Override
-    protected void handleClick() {
+    protected void handleClick(@Nullable View view) {
         if (mKeyguard.isMethodSecure() && mKeyguard.isShowing()) {
             mActivityStarter.postQSRunnableDismissingKeyguard(() -> {
                 mHost.openPanels();
