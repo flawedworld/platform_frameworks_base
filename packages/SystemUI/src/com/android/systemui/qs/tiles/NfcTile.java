@@ -129,7 +129,7 @@ public class NfcTile extends QSTileImpl<BooleanState> {
         return new Intent(Settings.ACTION_NFC_SETTINGS);
     }
 
-    protected void handleClickInner(@Nullable View view) {
+    private void handleClickInner(@Nullable View view) {
         if (getAdapter() == null) {
             return;
         }
@@ -141,15 +141,15 @@ public class NfcTile extends QSTileImpl<BooleanState> {
     }
 
     @Override
-    protected void handleClick() {
+    protected void handleClick(@Nullable View view) {
         if (mKeyguard.isMethodSecure() && mKeyguard.isShowing()) {
             mActivityStarter.postQSRunnableDismissingKeyguard(() -> {
                 mHost.openPanels();
-                handleClickInner();
+                handleClickInner(view);
             });
             return;
         }
-        handleClickInner();
+        handleClickInner(view);
     }
 
     @Override
