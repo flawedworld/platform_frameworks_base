@@ -11242,9 +11242,15 @@ public final class Settings {
         /** Preferred NTP server. {@hide} */
         @Readable
         public static final String NTP_SERVER = "ntp_server";
-        /** Timeout in milliseconds to wait for NTP server. {@hide} */
+        /** Timeout in milliseconds to wait for NTP server. {@hide} */   
         @Readable
         public static final String NTP_TIMEOUT = "ntp_timeout";
+        /** Preferred HTTPS time server. {@hide} */
+        @Readable
+        public static final String HTTPS_TIME_SERVER = "https_time_server";
+        /** Prefered method to get NTP. {@hide} */
+        @Readable
+        public static final String NTP_MODE = "ntp_mode";
 
         /** {@hide} */
         @Readable
