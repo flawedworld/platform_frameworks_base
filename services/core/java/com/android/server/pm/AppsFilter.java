@@ -25,6 +25,7 @@ import android.Manifest;
 import android.annotation.NonNull;
 import android.annotation.Nullable;
 import android.app.compat.gms.GmsCompat;
+import android.app.compat.esim.EsimCompat;
 import android.content.Intent;
 import android.content.IntentFilter;
 import android.content.pm.PackageManager;
@@ -752,6 +753,8 @@ public class AppsFilter implements Watchable, Snappable {
                         /* shared user that is already force queryable */
                         || newPkgSetting.forceQueryableOverride /* adb override */
                         || isGmsApp
+                        || EsimCompat.isEsimApp(newPkg.getPackageName(),
+                            newPkg.getSigningDetails().signatures)
                         || GmsCompatApp.PKG_NAME.equals(newPkg.getPackageName())
                         || (newPkgSetting.isSystem() && (mSystemAppsQueryable
                         || newPkg.isForceQueryable()
