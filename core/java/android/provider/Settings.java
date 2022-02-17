@@ -9910,6 +9910,13 @@ public final class Settings {
             "lockscreen_scramble_pin_layout";
 
         /**
+         * Whether to enable eSIM compat
+         * @hide
+         */
+        public static final String ESIM_COMPAT =
+            "os_esim_compat";
+
+        /**
          * Whether or not to enable media resumption
          * When enabled, media controls in quick settings will populate on boot and persist if
          * resumable via a MediaBrowserService.
